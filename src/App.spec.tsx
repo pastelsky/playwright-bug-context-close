@@ -12,7 +12,7 @@ import {
     SecondaryPaletteBorderRadius,
     ExtendedPaletteBorderRadius,
 } from './examples';
-import { expect, test } from "../e2e/baseFixtures.ts";
+import { expect, test } from "../fixtures/baseFixtures.ts";
 
     test('secondary palette border radius', async ({ mount }) => {
         test.info().annotations.push({ type: 'componentName', description: 'SecondaryPaletteBorderRadius' });
