@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
-import { test as baseTest } from '@playwright/test';
+import { test as baseTest } from '@playwright/experimental-ct-react';
 
 const istanbulCLIOutput = path.join(process.cwd(), '.nyc_output');
 
@@ -18,6 +18,7 @@ export const test = baseTest.extend({
     );
     await fs.promises.mkdir(istanbulCLIOutput, { recursive: true });
     await context.exposeFunction('collectIstanbulCoverage', (coverageJSON: string) => {
+      console.log('coverage is ',coverageJSON)
       if (coverageJSON)
         fs.writeFileSync(path.join(istanbulCLIOutput, `playwright_coverage_${generateUUID()}.json`), coverageJSON);
     });
