@@ -18,7 +18,6 @@ export const test = baseTest.extend({
     );
     await fs.promises.mkdir(istanbulCLIOutput, { recursive: true });
     await context.exposeFunction('collectIstanbulCoverage', (coverageJSON: string) => {
-      console.log('coverage is ',coverageJSON)
       if (coverageJSON)
         fs.writeFileSync(path.join(istanbulCLIOutput, `playwright_coverage_${generateUUID()}.json`), coverageJSON);
     });
